@@ -1,0 +1,106 @@
+@use "../../../stylesheets/abstracts/mixins" as m ;
+@use "../../../stylesheets/abstracts/variables" as v ;
+
+@mixin background {
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.home__container {
+   background: url(../../../assets/home/background-home-mobile.jpg);
+   @include background;
+   @include m.flex_column;
+   @include m.flex_center;
+   padding: 0 3rem;
+   padding-bottom: 13.1rem;
+   min-height: 100vh;
+   @include m.tablet {
+      background: url(../../../assets/home/background-home-tablet.jpg);
+      @include background;
+   }
+   @include m.desktop {
+      @include m.flex_row;
+      justify-content: space-around;
+      align-items: flex-end;
+      padding-top:8%;
+      background: url(../../../assets/home/background-home-desktop.jpg);
+      @include background;
+   }
+}
+.home__text_content {
+   color: v.$white;
+   text-align: center;
+   line-height: 25px;
+   > * {
+      font-weight: 400;
+      padding: 0;
+      margin: 0;
+   }
+   > span {
+      font-family: v.$Bl-con;
+      font-size: v.$subheading3;
+      color: v.$very_light_blue;
+      letter-spacing: v.$space;
+   }
+   > h1 {
+      line-height: 10rem;
+      font-size: 8rem;
+      margin: 1.6rem 0;
+   }
+   > p {
+      font-style: normal;
+      font-size: v.$regularText1;
+      color: v.$very_light_blue;
+   }
+   @include m.desktop {
+      width: 45rem;
+      text-align: left;
+      line-height: 3.2rem;
+      > span {
+         font-size: 2.8rem;
+      }
+      h1 {
+            line-height: 17.2rem;
+            font-size: 15rem;
+            margin: 2.4rem 0;
+      }
+      p {
+         font-family: v.$barlow;
+         font-size: v.$regularText;
+      }
+   }
+}
+
+.home__explore_button {
+   // box-shadow: 0 0 0 8rem v.$dark-gray;
+   cursor: pointer;
+   width: 15rem;
+   height: 15rem;
+   @include m.flex_row;
+   @include m.flex_center;
+   margin-top: 8.1rem;
+   border-radius: 50%;
+   background-color: v.$white;
+   text-transform: uppercase;
+   letter-spacing: v.$space;
+   > span {
+      font-size: 2rem;
+   }
+   @include m.desktop {
+      width: 27.4rem;
+      height: 27.4rem;
+   }
+   animation: exploreAnimate 1s ease-out infinite;
+}
+@keyframes exploreAnimate {
+   0% {
+      // box-shadow: 0 0 0 0rem v.$dark-gray;
+      outline:3px solid black;
+      outline-offset: 0px;
+   }
+   100% {
+      // box-shadow: 0 0 0 8rem rgba(255,255,255, 0);
+      outline:3px solid white;
+      outline-offset: 30px;
+   }
+}
